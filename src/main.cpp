@@ -1,5 +1,6 @@
 #include<iostream>
 #include<TypeInfo.h>
+#include<VariableId.h>
 
 REGISTER_TYPE(int)
 REGISTER_TYPE(float)

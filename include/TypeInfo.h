@@ -14,13 +14,14 @@ class TypeId final
 {
 public:
 	constexpr TypeId(uint64_t Id) : ID(Id) {}
+	constexpr TypeId()=default;
 public:
 	constexpr void setId(uint64_t Id) { ID = Id; } 
-	constexpr uint64_t getId() { return ID; }
-	const TypeInfo& getTypeInfo() { return getTypeInformation(*this); }
-	const std::string_view getName() { return getTypeInfo().name; }
-	const size_t getSize() { return getTypeInfo().size; }
-	const size_t getAlign() { return getTypeInfo().align; }
+	constexpr uint64_t getId() const { return ID; }
+	const TypeInfo& getTypeInfo() const { return getTypeInformation(*this); }
+	const std::string_view getName() const { return getTypeInfo().name; }
+	const size_t getSize() const { return getTypeInfo().size; }
+	const size_t getAlign() const { return getTypeInfo().align; }
 
 	template<typename T> static constexpr TypeId Create();
 	template<typename T> static TypeInfo& RegisterTypeId() 
